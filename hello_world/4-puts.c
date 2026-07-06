@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-/*
-	*This c program prints text using the function puts
+/**
+	* main - main function that prints using the command puts
 */
 int main(void)
 {
