@@ -2,7 +2,6 @@
 
 /**
 	* main - main function that prints using the command puts
-
 	* Return: returns 0
 */
 int main(void)
