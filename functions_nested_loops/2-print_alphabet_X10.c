@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * print_alphabet_X10 - function prints alphabet
+ * print_alphabet_x10 - function prints alphabet
  * lower case 10 times, followed by a new line
  * Return: return is void
 */
-void print_alphabet_X10(void)
+void print_alphabet_x10(void)
 {
 	int i = 0;
 
