@@ -19,6 +19,10 @@ int main(void)
 		{
 			printf("Fizz ");
 		}
+		else if ((i % 5) == 0 && i == 100)
+		{
+			printf("Buzz\n");
+		}
 		else if ((i % 5) == 0)
 		{
 			printf("Buzz ");
@@ -28,6 +32,5 @@ int main(void)
 			printf("%d ", i);
 		}
 	}
-	printf("\n");
 	return (0);
 }
