@@ -10,7 +10,6 @@ int _atoi(char *s)
 	int num = 0;
 	int i = 0;
 	int sign = 1;
-	int magnitude = 1;
 	int start;
 	int end;
 
@@ -26,11 +25,10 @@ int _atoi(char *s)
 				i++;
 			}
 			end = i - 1;
-			while (end >= start)
+			while (start <= end)
 			{
-				num = num + ((s[end] - '0') * magnitude);
-				magnitude = magnitude * 10;
-				end--;
+				num = num * 10 + (s[start] - '0');
+				start++;
 			}
 			num = num * sign;
 			return (num);
