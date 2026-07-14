@@ -27,10 +27,12 @@ int _atoi(char *s)
 			end = i - 1;
 			while (start <= end)
 			{
-				num = num * 10 + (s[start] - '0');
+				if (sign == 1)
+					num = num * 10 + (s[start] - '0');
+				else
+					num = num * 10 - (s[start] - '0');
 				start++;
 			}
-			num = num * sign;
 			return (num);
 		}
 		i++;
