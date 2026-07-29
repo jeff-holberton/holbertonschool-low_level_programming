@@ -1,14 +1,16 @@
 #include "3-calc.h"
 #include <stdio.h>
+#include <string.h>
 /**
+ * get_op_func - function that selects the appropriate
+ * function to run, based on operator character
+ * @s: first
  *
- *
- *
+ * Return: returns a int function that takes (int, int) as parameters
 */
-int (*get_op_func(char *s))(int ,int)
+int (*get_op_func(char *s))(int, int)
 {
-	op_t ops[] = 
-	{
+	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},
@@ -19,7 +21,7 @@ int (*get_op_func(char *s))(int ,int)
 	int i;
 
 	i = 0;
-	while (ops[i].op != s)
+	while (strcmp(ops[i].op, s) != 0)
 	{
 		i++;
 	}
