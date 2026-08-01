@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
 /**
  * main - program that prints the result of the
  * multiplication of two arguments passed to the program
