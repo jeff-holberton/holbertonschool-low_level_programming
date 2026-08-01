@@ -14,44 +14,45 @@ void print_all(const char * const format, ...)
 	char *temp;
 	int flag = 0;
 
-	if (format == NULL)
-		return;
-	va_start(args, format);
-	while (format[i] != '\0')
+	if (format != NULL)
 	{
-		switch (format[i])
+		va_start(args, format);
+		while (format[i] != '\0')
 		{
-			case 'c':
-				printf("%c", (char)va_arg(args, int));
-				flag = 1;
-				break;
-			case 'i':
-				printf("%d", va_arg(args, int));
-				flag = 1;
-				break;
-			case 'f':
-				printf("%f", (float)va_arg(args, double));
-				flag = 1;
-				break;
-			case 's':
-				temp = va_arg(args, char *);
-				if (temp == NULL)
-				{
-					printf("(nil)");
+			switch (format[i])
+			{
+				case 'c':
+					printf("%c", (char)va_arg(args, int));
 					flag = 1;
 					break;
-				}
-				printf("%s", temp);
-				flag = 1;
-				break;
+				case 'i':
+					printf("%d", va_arg(args, int));
+					flag = 1;
+					break;
+				case 'f':
+					printf("%f", (float)va_arg(args, double));
+					flag = 1;
+					break;
+				case 's':
+					temp = va_arg(args, char *);
+					if (temp == NULL)
+					{
+						printf("(nil)");
+						flag = 1;
+						break;
+					}
+					printf("%s", temp);
+					flag = 1;
+					break;
+			}
+			i++;
+			while (flag == 1 && format[i] != '\0')
+			{
+				printf(", ");
+				flag = 0;
+			}
 		}
-		i++;
-		while (flag == 1 && format[i] != '\0')
-		{
-			printf(", ");
-			flag = 0;
-		}
+		va_end(args);
 	}
 	printf("\n");
-	va_end(args);
 }
