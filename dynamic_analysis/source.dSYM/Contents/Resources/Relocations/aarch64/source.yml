@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/jeff/git/git-holberton/holbertonschool-low_level_programming/dynamic_analysis/source'
+relocations:     []
+...
