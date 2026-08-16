@@ -29,7 +29,7 @@ int store_add(store_t *st, session_t *s)
 	while (cur) {
 		if (cur->sess && cur->sess->id && strcmp(cur->sess->id, s->id) == 0)
 		{
-			free (s);
+			session_destroy(s);
 			return 0;
 		}
 		cur = cur->next;
@@ -37,7 +37,7 @@ int store_add(store_t *st, session_t *s)
 
 	n = node_create(s);
 	if (!n) {
-		free (s);
+		session_destroy(s);
 		return 0;
 	}
 
@@ -103,7 +103,7 @@ void store_destroy(store_t *st)
 	cur = st->head;
 	while (cur) {
 		next = cur->next;
-		
+
 		session_destroy(cur->sess);
 
 		free(cur);
