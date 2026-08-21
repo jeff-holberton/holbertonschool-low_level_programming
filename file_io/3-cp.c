@@ -37,7 +37,7 @@ int main(int ac, char **av)
 	}
 	while ((bytes_read = read(from_descriptor, buffer, 1024)) > 0)
 	{
-		write(to_descriptor, buffer, bytes_read) < 0)
+		if (write(to_descriptor, buffer, bytes_read) < 0)
 		{
 			dprintf(2, "Can't write to %s\n", av[2]);
 			exit(99);
