@@ -29,7 +29,7 @@ int main(int ac, char **av)
 		dprintf(2, "Can't read from %s\n", av[1]);
 		exit(98);
 	}
-	to_descriptor = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
+	to_descriptor = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (to_descriptor < 0)
 	{
 		dprintf(2, "Can't write to %s\n", av[2]);
@@ -37,7 +37,11 @@ int main(int ac, char **av)
 	}
 	while ((bytes_read = read(from_descriptor, buffer, 1024)) > 0)
 	{
-		write(to_descriptor, buffer, bytes_read);
+		write(to_descriptor, buffer, bytes_read) < 0)
+		{
+			dprintf(2, "Can't write to %s\n", av[2]);
+			exit(99);
+		}
 	}
 	if (close(to_descriptor) < 0)
 	{
